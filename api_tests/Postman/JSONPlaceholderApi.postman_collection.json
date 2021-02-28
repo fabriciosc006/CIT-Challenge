@@ -1,0 +1,123 @@
+{
+	"info": {
+		"_postman_id": "51e537d0-5e17-4cad-816d-fb5b5dd2537d",
+		"name": "JSONPlaceholderApi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET Users",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"const resp = pm.response.json()\r",
+							"var names = new Array()\r",
+							"var emails = new Array()\r",
+							"var catchphrases = new Array()\r",
+							"for(var i = 0; i < resp.length; i++)\r",
+							"{\r",
+							"   names.push(resp[i].name)\r",
+							"   emails.push(resp[i].email)\r",
+							"   catchphrases.push(resp[i].company.catchPhrase)\r",
+							"   } \r",
+							"   console.log(names)\r",
+							"   console.log(emails)\r",
+							"   console.log(catchphrases)\r",
+							"\r",
+							"var catchlenghts = new Array()\r",
+							"for(var i = 0; i < resp.length; i++){\r",
+							"    let str = catchphrases[i]\r",
+							"    let str1 = str.length\r",
+							"    if(str1<=50){\r",
+							"       catchlenghts.push(str)  \r",
+							"    }\r",
+							"}\r",
+							"console.log(catchlenghts)\r",
+							"pm.test('Names are valid', function () {\r",
+							"    pm.expect(names.length).to.be.eql(10);\r",
+							"});\r",
+							"pm.test('Emails are valid', function () {\r",
+							"    pm.expect(emails.length).to.be.eql(10);\r",
+							"});\r",
+							"pm.test('Company catchphrase have less than 50 characters', function () {\r",
+							"    pm.expect(catchlenghts.length).to.be.eql(10);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/users",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST posts",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"API Return an error\", function () {\r",
+							"    pm.response.to.have.status(500);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userId\": 1,\r\n    \"id\": 1,\r\n    \"title\":                                                                     ,\r\n    \"body\": \"quia et suscipit\\nsuscipit recusandae consequuntur expedita et cum\\nreprehenderit molestiae ut ut quas totam\\nnostrum rerum est autem sunt rem eveniet architecto\"\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/posts",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

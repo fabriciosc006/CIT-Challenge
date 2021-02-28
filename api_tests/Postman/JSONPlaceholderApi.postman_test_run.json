@@ -1,0 +1,98 @@
+{
+	"id": "22c49197-45cc-4760-a63f-d3ff903cc2b0",
+	"name": "JSONPlaceholderApi",
+	"timestamp": "2021-02-28T16:51:56.117Z",
+	"collection_id": "51e537d0-5e17-4cad-816d-fb5b5dd2537d",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 5,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "631ec2fa-30f2-4f77-ab84-0e9f58247b33",
+			"name": "GET Users",
+			"url": "https://jsonplaceholder.typicode.com/users",
+			"time": 542,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Names are valid": true,
+				"Emails are valid": true,
+				"Company catchphrase have less than 50 characters": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Names are valid": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Emails are valid": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Company catchphrase have less than 50 characters": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				542
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Names are valid": true,
+					"Emails are valid": true,
+					"Company catchphrase have less than 50 characters": true
+				}
+			]
+		},
+		{
+			"id": "ebbab768-3e16-4973-8d00-3ca9bd6919a3",
+			"name": "POST posts",
+			"url": "https://jsonplaceholder.typicode.com/posts",
+			"time": 622,
+			"responseCode": {
+				"code": 500,
+				"name": "Internal Server Error"
+			},
+			"tests": {
+				"API Return an error": true
+			},
+			"testPassFailCounts": {
+				"API Return an error": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				622
+			],
+			"allTests": [
+				{
+					"API Return an error": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 1164,
+	"collection": {
+		"requests": [
+			{
+				"id": "631ec2fa-30f2-4f77-ab84-0e9f58247b33",
+				"method": "GET"
+			},
+			{
+				"id": "ebbab768-3e16-4973-8d00-3ca9bd6919a3",
+				"method": "POST"
+			}
+		]
+	}
+}
